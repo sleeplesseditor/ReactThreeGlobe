@@ -6,7 +6,6 @@ import Map from '../assets/earthmap.jpg';
 import Spec from '../assets/earthspec.jpg';
 import { EnvMap } from './GlobeHelpers';
 
-
 export const Globe = () => {
     const mapClock = new Clock();
     const mapRef = React.useRef();

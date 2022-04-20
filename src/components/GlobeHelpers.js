@@ -22,6 +22,11 @@ const EnvMap = () => {
     return map;
 }
 
+function nr() {
+    return Math.random() * 2 - 1;
+}
+  
 export {
-    EnvMap
+    EnvMap,
+    nr
 }
