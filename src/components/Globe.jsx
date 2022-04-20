@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { useLoader } from '@react-three/fiber';
-import { Color, sRGBEncoding, TextureLoader } from 'three';
+import { useFrame, useLoader } from '@react-three/fiber';
+import { Color, Clock, sRGBEncoding, TextureLoader } from 'three';
 import Bump from '../assets/earthbump.jpg';
 import Map from '../assets/earthmap.jpg';
 import Spec from '../assets/earthspec.jpg';
@@ -8,11 +8,19 @@ import { EnvMap } from './GlobeHelpers';
 
 
 export const Globe = () => {
+    const mapClock = new Clock();
+    const mapRef = React.useRef();
     let mapTexture = useLoader(TextureLoader, Map);
     mapTexture.encoding = sRGBEncoding;
 
+    useFrame(() => {
+        let delta = mapClock.getDelta();
+        mapRef.current.rotation.y += delta * 0.05
+    });
+
     return (
-        <mesh 
+        <mesh
+            ref={mapRef}
             rotateY={Math.PI * 1.25} 
             receiveShadow={true}
         >
