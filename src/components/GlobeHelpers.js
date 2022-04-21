@@ -11,14 +11,10 @@ const EnvMap = () => {
 
     let map;
 
-    let envTexture = useLoader(RGBELoader, HDR);
-    envTexture.setDataType(FloatType);
+    let envTexture = useLoader(RGBELoader, HDR).setDataType(FloatType);
+    // envTexture;
 
-    let rt = pmrem.fromEquirectangular(envTexture);
-    map = rt.texture;
-
-    console.log('MAP', map)
-
+    map = pmrem.fromEquirectangular(envTexture).texture;
     return map;
 }
 
