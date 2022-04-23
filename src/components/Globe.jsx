@@ -25,6 +25,7 @@ export const Globe = () => {
         >
             <sphereGeometry 
                 args={[10, 70, 70]}
+                attach="geometry"
                 sheen={1}
                 sheenColor={new Color("#ff8a00").convertSRGBToLinear()}
                 sheenRoughness={0.75}
@@ -34,7 +35,7 @@ export const Globe = () => {
                 bumpMap={useLoader(TextureLoader, Bump)}
                 bumpScale={0.05}
                 clearcoat={0.5}
-                envMap={EnvMap}
+                envMap={EnvMap()}
                 envMapIntensity={0.4}
                 map={mapTexture}
                 roughnessMap={useLoader(TextureLoader, Spec)}

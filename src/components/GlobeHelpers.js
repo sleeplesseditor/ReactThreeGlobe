@@ -8,13 +8,8 @@ const EnvMap = () => {
     const { gl } = useThree();
 
     let pmrem = new PMREMGenerator(gl);
-
-    let map;
-
-    let envTexture = useLoader(RGBELoader, HDR).setDataType(FloatType);
-    // envTexture;
-
-    map = pmrem.fromEquirectangular(envTexture).texture;
+    let envTexture = useLoader(RGBELoader, HDR);
+    let map = pmrem.fromEquirectangular(envTexture).texture;
     return map;
 }
 

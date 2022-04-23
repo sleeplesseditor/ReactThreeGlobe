@@ -43,7 +43,6 @@ const RingScene = () => {
     )
 }
 
-
 export const GlobeContainer = () => {
     const mainRef = React.useRef();
     const divRef = React.useRef()
@@ -51,36 +50,33 @@ export const GlobeContainer = () => {
     return (
         <main ref={mainRef}>
             <div ref={divRef} style={{ height: '100vh'}}>
-            <Canvas camera={{ fov: 45, near: 0.1, far: 1000, position: [0, 15, 50] }} shadows style={{
-                background: 'linear-gradient(45deg, rgb(255 219 158), rgb(253 243 220))'
-            }}>
-                <View track={divRef}>
-                <perspectiveCamera 
-                    aspect={window.innerWidth / window.innerHeight} 
-                    far={1000} 
-                    fov={45} 
-                    near={0.1} 
-                    position={[0, 0, 50]}
-                />
-                <directionalLight
-                    // camera={{ near: 0.5, far: 100, position: [-10, -10, 10, 10]}}
-                    castShadow={true} 
-                    color={new Color("#FFFFFF").convertSRGBToLinear()} 
-                    intensity={3.5}
-                    position={[10, 20, 10]}
-                />
-                <directionalLight
-                    // camera={{ near: 0.5, far: 100, position: [-10, -10, 10, 10]}}
-                    castShadow={true} 
-                    color={new Color("#77CCFF").convertSRGBToLinear()} 
-                    intensity={3.5}
-                    position={[-10, 20, 10]}
-                />
-                <Globe />
-                    <RingScene />
+                <Canvas camera={{ fov: 45, near: 0.1, far: 1000, position: [0, 15, 45] }} style={{
+                    background: 'linear-gradient(45deg, rgb(255 219 158), rgb(253 243 220))'
+                }}>
                     <Controls />
-                </View>
-            </Canvas>
+                    <perspectiveCamera 
+                        aspect={window.innerWidth / window.innerHeight} 
+                        far={1000} 
+                        fov={45} 
+                        near={0.1} 
+                        position={[0, 0, 50]}
+                    />
+                    <directionalLight
+                        camera={{ near: 0.5, far: 100, position: [-10, -10, 10, 10]}}
+                        castShadow={true} 
+                        color={new Color("#FFFFFF").convertSRGBToLinear()} 
+                        intensity={3.5}
+                        position={[10, 20, 10]}
+                    />
+                    {/* <directionalLight
+                        camera={{ near: 0.5, far: 100, position: [-10, -10, 10, 10]}}
+                        castShadow={true} 
+                        color={new Color("#77CCFF").convertSRGBToLinear()} 
+                        intensity={3.5}
+                        position={[-10, 20, 10]}
+                    /> */}
+                    <Globe />
+                </Canvas>
             </div>
         </main>
     )
